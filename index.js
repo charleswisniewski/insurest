@@ -1,19 +1,12 @@
 import express from 'express';
-import policies from './db/policy';
+
+const policy = require('./routes/policy')
+
 // Set up the express app
 const app = express();
-// get all todos
-app.get('/policy', (req, res) => {
-  res.status(200).send(
-      policies
-  )
-});
+// get all policies
+app.get('/policy', policy.policy);
 
-// app.post('/policy', (req, res) => {
-//     res.status(200).send(
-//         policies
-//     )
-//   });
 const PORT = 5000;
 
 app.listen(PORT, () => {
